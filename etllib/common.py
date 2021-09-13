@@ -8,7 +8,7 @@ import uuid
 import logging
 from datetime import datetime, timedelta
 
-logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',level=logging.WARN)
 
 # get a YYYYMM result after +/- [num] months
 def add_month(year_month, num):

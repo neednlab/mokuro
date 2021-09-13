@@ -25,7 +25,8 @@ def test_load(spark_etl):
 
 
 # launch ETL
-etl_function_list = [test_load]
-etl_spark_session = SparkETL.get_spark_session("test_load")
-spark_etl = SparkETL(etl_pipeline_name="ETL demo", spark=etl_spark_session, deploy_mode="CLIENT", is_databricks=False)
-spark_etl.process_etl(spark_table_list, *etl_function_list)
+if __name__ == "__main__":
+    etl_function_list = [test_load]
+    etl_spark_session = SparkETL.get_spark_session("test_load")
+    spark_etl = SparkETL(etl_pipeline_name="ETL demo", spark=etl_spark_session, deploy_mode="CLIENT", is_databricks=False)
+    spark_etl.process_etl(spark_table_list, *etl_function_list)
