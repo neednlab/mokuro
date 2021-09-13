@@ -2,8 +2,13 @@
 # @Time    : 2020/12/21
 # @Author  : Needn
 # @Software: VS
-import sys,os,uuid
+import sys
+import os
+import uuid
+import logging
 from datetime import datetime, timedelta
+
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s',level=logging.INFO)
 
 # get a YYYYMM result after +/- [num] months
 def add_month(year_month, num):
@@ -49,13 +54,4 @@ THREE_WEEKS_AGO = (YESTERDAY_NOW - timedelta(days=21)).strftime('%Y-%m-%d')
 THREE_DAYS_AGO = (YESTERDAY_NOW - timedelta(days=3)).strftime('%Y-%m-%d')
 ONE_WEEK_AGO = (NOW - timedelta(days=7)).strftime('%Y-%m-%d')
 # =====================================================================================
-
-def print_log(log_type, text):
-    print(log_type + " " + str(datetime.utcnow() + timedelta(hours=8)) + " " + text)
-
-
-# use UTC, Asia/Shanghai timezone only
-def validate_timezone(timezone):
-    if timezone not in ["Asia/Shanghai", "UTC"]:
-        raise Exception("Can not process timezone [" + timezone + "]")
 
